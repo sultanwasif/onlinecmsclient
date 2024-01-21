@@ -1,0 +1,17 @@
+<mat-card class="order-card">
+    <mat-card-header>
+      <mat-card-title>{{ order.voucherno }}</mat-card-title>
+      <mat-card-subtitle>{{ order.orderstatus }} - {{ order.modifydate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Voucher Date:</strong> {{ order.createddate }} </p>
+      <p><strong>Paid Status:</strong> {{ order.paidstatus }}</p>
+      <p><strong>Customer Info :</strong> {{ order.customername }} - {{ order.customertel }} - {{ order.customeraddress }} - {{ order.customerlocation }} - {{ order.customeremirate }} </p>
+      <!-- <p><strong>Customer Tel:</strong> </p>
+      <p><strong>Customer Address:</strong> </p>
+      <p><strong>Customer Location:</strong> </p>
+      <p><strong>Customer Emirate:</strong> </p> -->
+      <p><strong>Driver Assign:</strong> {{ order.driverassign }}</p>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,32 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* Add any custom CSS styles here */
+/* "@angular/material/prebuilt-themes/indigo-pink.css", */
+.small-width-column {
+    width: 20px !important; /* Adjust the width to your preference */
+  }
+
+  .order-card {
+    max-width: 400px !important;
+    margin: 10px !important;
+    color: black !important;
+  }
+  
+  .custom-mat-card-content .mat-card-content {
+    font-size: 16px !important;
+    color: black !important;
+  }
+  
+  .bold-black-icon {
+    font-weight: bold !important;
+    color: black !important;
+  }
+
+  .container {
+    position: relative;
+  }
+  
+  .top-right-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }

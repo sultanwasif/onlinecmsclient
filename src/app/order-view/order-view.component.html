@@ -1,0 +1,132 @@
+
+
+<ng-container *ngIf="isMobile; else desktopView">
+  <div class="container">
+    <button mat-icon-button (click)="openModal()" class="top-right-button">
+      <mat-icon class="bold-black-icon">search</mat-icon>
+    </button>
+    <br>
+    <br>
+    <app-order-card
+      *ngFor="let order of orders"
+      [order]="order"
+    ></app-order-card>
+  </div>
+</ng-container>
+<ng-template #desktopView>
+  <div class="container">
+    <button mat-icon-button (click)="openModal()" class="top-right-button">
+      <mat-icon class="bold-black-icon">search</mat-icon>
+    </button>
+    <!-- Input fields for search -->
+    <div class="search-container">
+      <!-- First line of inputs -->
+      <!-- <ng-container *ngIf="!searching"> -->
+        <ng-container>
+        <!-- <mat-form-field>
+          <input matInput placeholder="Customer Mobile" [(ngModel)]="customermob">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Voucher no" [(ngModel)]="voucherno">
+        </mat-form-field> -->
+        <!-- <mat-form-field>
+          <input matInput placeholder="Voucher no" [(ngModel)]="clientId">
+        </mat-form-field> -->
+        <!-- <div>
+          <mat-checkbox [(ngModel)]="useDateRange">Use Date Range</mat-checkbox>
+        </div>
+          
+        
+        <div *ngIf="useDateRange">
+          <mat-form-field>
+            <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div> -->
+        <button mat-raised-button color="primary" (click)="searchOrders()">Submit</button>
+      </ng-container>
+    
+      <!-- Second line of inputs (Initially disabled) -->
+      <!-- <ng-container *ngIf="searching">
+        <mat-form-field>
+          <input matInput placeholder="Voucher No" [(ngModel)]="orderStatus" [disabled]="!searching">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Customer Mobile No" [(ngModel)]="clientName" [disabled]="!searching">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="searchOrders()">Search</button>
+      </ng-container> -->
+    </div>
+    
+    <mat-table [dataSource]="orders" class="mat-elevation-z8">
+      <!-- Replace the column headers below with your data -->
+      
+      <ng-container matColumnDef="rownumber">
+        <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
+        <mat-cell *matCellDef="let i = index"> {{ i + 1 }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="voucherno">
+        <mat-header-cell *matHeaderCellDef> Voucher No </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.voucherno }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="createddate">
+        <mat-header-cell *matHeaderCellDef> Voucher Date </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.createddate }} </mat-cell>
+      </ng-container>      
+
+      <ng-container matColumnDef="orderstatus">
+        <mat-header-cell *matHeaderCellDef> Order Status </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.orderstatus }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="paidstatus">
+        <mat-header-cell *matHeaderCellDef> Paid Status </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.paidstatus }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="customername">
+        <mat-header-cell *matHeaderCellDef> Customer Name </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customername }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="customertel">
+        <mat-header-cell *matHeaderCellDef> Customer Tel </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customertel }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="customeraddress">
+        <mat-header-cell *matHeaderCellDef> Customer Address </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customeraddress }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="customerlocation">
+        <mat-header-cell *matHeaderCellDef> Customer Location </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customerlocation }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="customeremirate">
+        <mat-header-cell *matHeaderCellDef> Customer Emirate </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.customeremirate }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="driverassign">
+        <mat-header-cell *matHeaderCellDef> Driver Assign </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order.driverassign }} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
+</ng-template>
+

@@ -1,0 +1,22 @@
+<div class="modal-input">
+    <h2>Search Modal</h2>
+    <mat-form-field>
+      <input matInput placeholder="Voucher No." [(ngModel)]="voucherno">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Customer Phone" [(ngModel)]="cusmobile">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="startDate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="endDate">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="includeStartDate">Include Date for Search</mat-checkbox>
+    <br>
+    <button mat-raised-button color="primary" (click)="search()">Search</button>
+</div>
